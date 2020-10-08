@@ -17,7 +17,7 @@ module ShortenUrl
     def self.shorten(url:)
       exists = ShortenUrl::ShortUrl.find_by_url(url)
 
-      return exists.short_url
+      return exists.short_url if exists
 
       record = ShortenUrl::ShortUrl.create!(url: url)
       hashed_id = bijective_encode(record.id)
