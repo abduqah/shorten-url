@@ -57,12 +57,12 @@ module ShortenUrl
     end
 
     def add_url_protocol(s)
-      "http://#{s}.short.try"
+      "http://#{s}.try"
     end
 
     def self.remove_url_protocol(s)
-      s_no_suffix = s.split('.short.try')[0]
-      s_no_prefix = s_no_suffix('http://')[0]
+      s_no_suffix = s.split('.try')[0]
+      s_no_prefix = s_no_suffix.split('http://')[0]
     end
   end
 end
