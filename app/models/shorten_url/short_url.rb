@@ -7,9 +7,9 @@ module ShortenUrl
 
     def self.resolve(short_url:)
       hashed_id = remove_url_protocol(short_url)
-      id = bijective_decode(hashed_id)
+      return nil unless hashed_id
 
-      return nil unless id
+      id = bijective_decode(hashed_id)
 
       ShortenUrl::ShortUrl.find(id).url
     end
