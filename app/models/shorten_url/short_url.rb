@@ -20,14 +20,20 @@ module ShortenUrl
       return exists.short_url if exists
 
       record = ShortenUrl::ShortUrl.create!(url: url)
-      hashed_id = bijective_encode(record.id)
 
-      short_url = add_url_protocol(hashed_id)
+      short_url = record.short_url
     end
 
     private
     
     KEYS = "Z0aY1b2cX3dW4eV5fU6gT7hS8iR9jKLMNOPQklmnopqrstuvwxyzABCDEFGHIJ".split(//)
+
+    def save_short_url_to_db
+      hashed_id = bijective_encode(id)
+
+      self.short_url = add_url_protocol(hashed_id)
+      save
+    end
 
     def bijective_encode(i)
       return KEYS[0] if i == 0
@@ -42,7 +48,7 @@ module ShortenUrl
       s.reverse
     end
 
-    def bijective_decode(s)
+    def self.bijective_decode(s)
       i = 0
       base = KEYS.length
 
@@ -51,19 +57,12 @@ module ShortenUrl
     end
 
     def add_url_protocol(s)
-      "http://#{s}.q-shorten.try"
+      "http://#{s}.short.try"
     end
 
-    def remove_url_protocol(s)
-      s_no_suffix = s.split('.q-shorten.try')[0]
+    def self.remove_url_protocol(s)
+      s_no_suffix = s.split('.short.try')[0]
       s_no_prefix = s_no_suffix('http://')[0]
-    end
-
-    def save_short_url_to_db
-      hashed_id = bijective_encode(id)
-
-      self.short_url = add_url_protocol(hashed_id)
-      save
     end
   end
 end
