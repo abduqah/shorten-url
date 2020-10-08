@@ -5,7 +5,7 @@ require "shorten_url/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "shorten-url"
+  spec.name        = "shorten_url"
   spec.version     = ShortenUrl::VERSION
   spec.authors     = ["abdulrahman"]
   spec.email       = ["abdu.q.ah@gmail.com"]
