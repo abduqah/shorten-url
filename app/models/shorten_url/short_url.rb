@@ -62,7 +62,7 @@ module ShortenUrl
 
     def self.remove_url_protocol(s)
       s_no_suffix = s.split('.try')[0]
-      s_no_prefix = s_no_suffix.split('http://')[0]
+      s_no_prefix = s_no_suffix.split('http://')[1]
     end
   end
 end
