@@ -65,7 +65,7 @@ module ShortenUrl
     end
 
     def self.remove_url_protocol(s)
-      hashed_id = if s.include?('.try')
+      hashed_id = if s.end_with?('.try') && s.start_with?('http://')
         s_no_suffix = s.split('.try')[0]
         s_no_suffix.split('http://')[1]
       else
