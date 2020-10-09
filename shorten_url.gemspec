@@ -7,11 +7,11 @@ require "shorten_url/version"
 Gem::Specification.new do |spec|
   spec.name        = "shorten_url"
   spec.version     = ShortenUrl::VERSION
-  spec.authors     = ["abdulrahman"]
+  spec.authors     = ["abdurrahman"]
   spec.email       = ["abdu.q.ah@gmail.com"]
   spec.homepage    = "https://github.com/abduqah/shorten-url.git"
-  spec.summary     = "url_shortener is a Rails Engine that makes it easy to create shortened URLs for your rails application."
-  spec.description = "url_shortener is a Rails Engine Gem that makes it easy to create and interpret shortened URLs on your own domain from within your Rails application. Once installed Shortener will generate, store URLS and \"unshorten\" shortened URLs for your application visitors."
+  spec.summary     = "shorten_url Gem uses bijective function to hash ids, make it easier to shorten URLs and retrieve them."
+  spec.description = "shorten_url shorten URLs and and resolve short URLs."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
